@@ -1,12 +1,26 @@
 import pygame
 
+
 pygame.init()
 
-# ----- Gera tela principal
-xt = 900
-yt = 750
+
+
+# ----- Gera tela inicial
+xt = 1000
+yt = 670
 window = pygame.display.set_mode((xt, yt))
+import imagens.imagens_digitalizadas as img
 pygame.display.set_caption('Cabeças Copulares')
+font = pygame.font.SysFont(None, 60)
+text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
+state = 'start screen'
+
+if state == 'start screen':
+    window.blit(img.tela_inicial, (0,0))
+    window.blit(img.cup_parado, (630,254))  
+    window.blit(img.cup_armado, (100,254))  
+
+
 
 # ----- Inicia estruturas de dados
 game = True
@@ -20,8 +34,7 @@ while game:
             game = False
 
     # ----- Gera saídas
-    window.fill((255, 255, 255))  # Preenche com a cor branca
-
+    
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
