@@ -15,6 +15,7 @@ pygame.display.set_caption('Cabeças Copulares')
 font = pygame.font.SysFont(None, 60)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
 state = 'start screen'
+clock = pygame.time.Clock()
 
 if state == 'start screen':
     window.blit(img.tela_inicial, (0,0))
@@ -39,6 +40,7 @@ while STATUS != QUIT:
 
             if x > 0 and y > 0 and x < 1000 and y < 650:
                 STATUS = GAME
+                clock.tick(FPS)
 
     if STATUS == GAME:
         window.blit(img.tela_jogo,(x_img, 0))
