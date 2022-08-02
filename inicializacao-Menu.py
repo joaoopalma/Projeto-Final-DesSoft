@@ -14,14 +14,15 @@ font = pygame.font.SysFont(None, 60)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
 state = 'start screen'
 clock = pygame.time.Clock()
+bem_vindo = font.render('Bem-Vindo ao JOGO CABEÇAS COPULARES!', True, AZUL_ESCURO)
 
-if state == 'start screen':
+if state == 'start screen':   
     window.blit(tela_inicial, (0,0))
     window.blit(cup_parado, (630,254))  
     window.blit(cup_armado, (100,254))  
+    window.blit(bem_vindo, (50, 150))
 
-
-
+pontos = 0
 # ----- Inicia estruturas de dados
 STATUS = INIT
 
@@ -41,6 +42,7 @@ while STATUS != QUIT:
                 clock.tick(FPS)
 
     if STATUS == GAME:
+        score = font.render('score: {}'.format(pontos), True, (255, 255, 255))
         window.blit(tela_jogo,(x_img, 0))
         window.blit(tela_jogo,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
@@ -48,9 +50,10 @@ while STATUS != QUIT:
         else:
             x_img -= 1
         
+        window.blit(score, (800, 100))
         window.blit(cup_parado, (100,254))
-        monstro=Player(cog_marrom, x, y)
-        window.blit(cog_marrom, cog_marrom.get_rect())
+        monstro=Cogumelo(cog_marrom, 900, 413)
+        window.blit(monstro.image, monstro.rect)
             
 
     # ----- Gera saídas
