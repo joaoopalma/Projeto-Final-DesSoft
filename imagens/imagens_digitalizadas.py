@@ -12,3 +12,7 @@ tela_inicial = pygame.transform.scale(tela_inicial, (1000, 670))
 
 tela_jogo = pygame.image.load("imagens\\tela_jogo.png").convert_alpha()
 tela_jogo = pygame.transform.scale(tela_jogo, (1000, 670))
+
+yoshi = pygame.image.load("imagens\\yoshi.png").convert_alpha()
+yoshi = pygame.transform.scale(yoshi, (75, 75))
+
