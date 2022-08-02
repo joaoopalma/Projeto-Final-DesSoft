@@ -4,8 +4,9 @@ from sklearn.feature_extraction import img_to_graph
 
 
 # Conglomerado dos assets a serem utilizados
-IMG_DIR = path.join(path.dirname(__file__), "imagens") # Pasta de imagens
+IMG_DIR = path.join(path.dirname(__file__), "imagens") # Pasta de Imagens
 FNT_DIR = path.join(path.dirname(__file__), "fonts") # Pasta de Fontes
+SND_DIR = path.join(path.dirname(__file__), "sounds") # Pasta de Sons
 
 
 # Dados Gerais do jogo
