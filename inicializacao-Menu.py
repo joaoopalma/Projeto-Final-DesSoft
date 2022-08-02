@@ -6,7 +6,6 @@ pygame.init()
 
 # ----- Gera tela inicial
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-
 pygame.display.set_caption('Cabeças Copulares')
 font = pygame.font.SysFont(None, 60)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
@@ -14,9 +13,9 @@ state = 'start screen'
 clock = pygame.time.Clock()
 
 if state == 'start screen':
-    window.blit(img.tela_inicial, (0,0))
-    window.blit(img.cup_parado, (630,254))  
-    window.blit(img.cup_armado, (100,254))  
+    window.blit(tela_inicial, (0,0))
+    window.blit(cup_parado, (630,254))  
+    window.blit(cup_armado, (100,254))  
 
 
 
@@ -39,14 +38,14 @@ while STATUS != QUIT:
                 clock.tick(FPS)
 
     if STATUS == GAME:
-        window.blit(img.tela_jogo,(x_img, 0))
-        window.blit(img.tela_jogo,(x_img + WIDTH, 0))
+        window.blit(tela_jogo,(x_img, 0))
+        window.blit(tela_jogo,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
             x_img = 0
         else:
             x_img -= 1
         
-        window.blit(img.cup_parado, (100,254))
+        window.blit(cup_parado, (100,254))
         monstro=Player(cog_marrom,x_img,0)
             
 
