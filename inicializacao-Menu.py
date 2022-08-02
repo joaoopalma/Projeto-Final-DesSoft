@@ -1,5 +1,6 @@
 import pygame
 from config import *
+from classes import *
 #from imagens.imagens_digitalizadas import *
 
 
