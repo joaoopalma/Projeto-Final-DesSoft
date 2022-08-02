@@ -9,12 +9,14 @@ class Player (pygame.sprite.Sprite):
         self.image = img 
         self.rect = self.image.get_rect()
 
+
         # Coloca no lugar inicial definido em x, y do constutor
-        self.rect.centerx = 1500
-        self.rect.centery = 500
+        x= 900
+        y=413
+        self.rect.centerx = x
+        self.rect.centery = y
 
     def update(self):
-        self.velocidade +=1
         self.rect.x += self.d_x
         self.rect.y = self.d_y
         

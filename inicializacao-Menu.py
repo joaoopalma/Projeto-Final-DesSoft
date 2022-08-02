@@ -49,7 +49,7 @@ while STATUS != QUIT:
             x_img -= 1
         
         window.blit(cup_parado, (100,254))
-        monstro=Player(cog_marrom,x_img,0)
+        monstro=Player(cog_marrom, x, y)
         window.blit(cog_marrom, cog_marrom.get_rect())
             
 
