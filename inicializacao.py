@@ -1,4 +1,5 @@
 import pygame
+from config import *
 
 
 pygame.init()
@@ -6,9 +7,7 @@ pygame.init()
 
 
 # ----- Gera tela inicial
-xt = 1000
-yt = 670
-window = pygame.display.set_mode((xt, yt))
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 import imagens.imagens_digitalizadas as img
 pygame.display.set_caption('Cabeças Copulares')
 font = pygame.font.SysFont(None, 60)
