@@ -1,6 +1,6 @@
 import pygame
 
-pygame.init()
+#pygame.init()
 cup_armado = pygame.image.load("imagens\\cup_armado.png").convert_alpha()
 cup_armado = pygame.transform.scale(cup_armado, (300, 300))
 
@@ -9,3 +9,6 @@ cup_parado = pygame.transform.scale(cup_parado, (300, 300))
 
 tela_inicial = pygame.image.load("imagens\\tela_inicial.png").convert_alpha()
 tela_inicial = pygame.transform.scale(tela_inicial, (1000, 670))
+
+tela_jogo = pygame.image.load("imagens\\tela_jogo.png").convert_alpha()
+tela_jogo = pygame.transform.scale(tela_jogo, (1000, 670))

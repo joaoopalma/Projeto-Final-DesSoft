@@ -42,8 +42,7 @@ AMARELO = (150, 150, 0)
 # Estados do jogo
 INIT = 0
 MENU = 1
-LEVEL1 = 2
-LEVEL2 = 3
-END_SCREEN = 4
-QUIT = 5
+GAME = 2
+END_SCREEN = 3
+QUIT = 4
 

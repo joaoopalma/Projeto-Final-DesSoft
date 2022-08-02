@@ -1,5 +1,6 @@
 import pygame
 from config import *
+#from imagens.imagens_digitalizadas import *
 
 
 pygame.init()
@@ -22,15 +23,26 @@ if state == 'start screen':
 
 
 # ----- Inicia estruturas de dados
-game = True
+STATUS = INIT
 
 # ===== Loop principal =====
-while game:
+while STATUS != QUIT:
     # ----- Trata eventos
     for event in pygame.event.get():
         # ----- Verifica consequências
         if event.type == pygame.QUIT:
             game = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            x = pygame.mouse.get_pos()[0]
+            y = pygame.mouse.get_pos()[1]
+
+            if x > 0 and y > 0 and x < 1000 and y < 650:
+                STATUS = GAME
+
+    if STATUS == GAME:
+        window.blit(img.tela_jogo,(0, 0))
+        window.blit(img.cup_parado, (100,254))
+            
 
     # ----- Gera saídas
     
