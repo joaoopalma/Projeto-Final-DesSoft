@@ -1,16 +1,12 @@
 import pygame
 from config import *
 from classes import *
-#from imagens.imagens_digitalizadas import *
-
-
+from imagens_digitalizadas import *
 pygame.init()
-
-
 
 # ----- Gera tela inicial
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-import imagens.imagens_digitalizadas as img
+
 pygame.display.set_caption('Cabeças Copulares')
 font = pygame.font.SysFont(None, 60)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
@@ -51,6 +47,7 @@ while STATUS != QUIT:
             x_img -= 1
         
         window.blit(img.cup_parado, (100,254))
+        monstro=Player(cog_marrom,x_img,0)
             
 
     # ----- Gera saídas
