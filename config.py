@@ -8,8 +8,8 @@ SND_DIR = path.join(path.dirname(__file__), "sounds") # Pasta de Sons
 
 
 # Dados Gerais do jogo
-WIDTH = 900 # Largura da tela
-HEIGHT =  750 # Altura da tela
+WIDTH = 1000 # Largura da tela
+HEIGHT =  650 # Altura da tela
 FPS = 50 # Frames por segundo
 x_img = 0
 
