@@ -23,6 +23,16 @@ FPS = 50 # Frames por segundo
 
 
 # Definindo Cores
+BRANCO = (255, 255, 255)
+PRETO = (0, 0, 0)
+VERMELHO = (255, 0, 0)
+VERDE = (0, 255, 0)
+AZUL = (0, 0, 255)
+CINZA = (130, 130, 130)
+CINZA_CLARO = (168, 168, 168)
+CINZA_ESCURO = (48, 48, 48)
+AZUL_ESCURO = (0, 51, 102)
+AMARELO = (150, 150, 0)
 
 
 
