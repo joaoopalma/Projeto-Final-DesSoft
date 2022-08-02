@@ -16,3 +16,12 @@ tela_jogo = pygame.transform.scale(tela_jogo, (1000, 670))
 yoshi = pygame.image.load("imagens\\yoshi.png").convert_alpha()
 yoshi = pygame.transform.scale(yoshi, (75, 75))
 
+cog_marrom = pygame.image.load("imagens\\cog_marrom.png").convert_alpha()
+cog_marrom = pygame.transform.scale(cog_marrom, (75, 75))
+
+cog_vermelho = pygame.image.load("imagens\\cog_vermelho.png").convert_alpha()
+cog_vermelho = pygame.transform.scale(cog_vermelho, (75, 75))
+
+
+
+
