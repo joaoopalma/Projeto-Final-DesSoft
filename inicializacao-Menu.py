@@ -41,7 +41,13 @@ while STATUS != QUIT:
                 STATUS = GAME
 
     if STATUS == GAME:
-        window.blit(img.tela_jogo,(0, 0))
+        window.blit(img.tela_jogo,(x_img, 0))
+        window.blit(img.tela_jogo,(x_img + WIDTH, 0))
+        if x_img + WIDTH == 0:
+            x_img = 0
+        else:
+            x_img -= 1
+        
         window.blit(img.cup_parado, (100,254))
             
 
