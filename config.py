@@ -1,7 +1,5 @@
 from os import path
 
-from sklearn.feature_extraction import img_to_graph
-
 
 # Conglomerado dos assets a serem utilizados
 IMG_DIR = path.join(path.dirname(__file__), "imagens") # Pasta de Imagens
@@ -10,13 +8,13 @@ SND_DIR = path.join(path.dirname(__file__), "sounds") # Pasta de Sons
 
 
 # Dados Gerais do jogo
-WIDTH = 500 # Largura da tela
-HEIGHT =  400 # Altura da
+WIDTH = 900 # Largura da tela
+HEIGHT =  750 # Altura da tela
 FPS = 50 # Frames por segundo
 
 # Definindo os tamanhos
 
-#Player_Widht
+##Player_Widht
 
 
 
