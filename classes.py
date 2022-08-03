@@ -25,7 +25,9 @@ class Cogumelo (pygame.sprite.Sprite):
         if self.rect.x >= WIDTH+57 or self.rect.x < 0 or self.rect.y >= HEIGHT or self.rect.y < 0:
             #self.rect.x = 900
             #self.rect.y = 413
-            Cogumelo.velocidade_inicial+=1
+            Cogumelo.velocidade_inicial+=0.5
+            if Cogumelo.velocidade_inicial >= 3:
+                Cogumelo.velocidade_inicial=1
             self.kill()
             
 

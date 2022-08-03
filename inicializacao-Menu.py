@@ -1,5 +1,6 @@
 import pygame
 from config import *
+import random
 
 
 pygame.init()
@@ -16,7 +17,8 @@ state = 'start screen'
 clock = pygame.time.Clock()
 bem_vindo = font.render('Bem-Vindo ao JOGO CABEÇAS COPULARES!', True, AZUL_ESCURO)
 jogador=Player(cup_parado, 400, 254)
-monstro=Cogumelo(cog_marrom, 900, 413)
+escolhido=random.choice([cog_marrom, cog_vermelho, yoshi])
+monstro=Cogumelo(escolhido, 900, 413)
 jogando= False
 monstros = pygame.sprite.Group()
 monstros.add(monstro)
@@ -25,6 +27,8 @@ monstros.add(monstro)
 clock = pygame.time.Clock()
 
 tempo_total = pygame.time.get_ticks() # variável responsável por armazenar o tempo decorrido desde o início do jogo
+tempo_criacao= tempo_total
+tempo_espera= 5
 
 if state == 'start screen':   
     window.blit(tela_inicial, (0,0))
@@ -68,8 +72,7 @@ while STATUS != QUIT:
             x_img = 0
         else:
             x_img -= 1
-        
-        window.blit(jogador.image, jogador.rect)  
+          
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
 
             ## TImer
@@ -105,12 +108,18 @@ while STATUS != QUIT:
         if len(colisao)>0:
             STATUS = END_SCREEN
         
-        if segundos%2==0:
-            monstro=Cogumelo(cog_marrom, 900, 413)
+        tempo_criacao2=(pygame.time.get_ticks() - tempo_criacao)//1000
+        if int(tempo_criacao2)>=tempo_espera:
+            escolhido=random.choice([cog_marrom, cog_vermelho, yoshi])
+            monstro=Cogumelo(escolhido, 900, 413)
             monstros.add(monstro)
+            tempo_criacao = pygame.time.get_ticks()
+            tempo_espera=random.uniform(2,6)
 
-        monstros.update()
-        monstros.draw(window)
+
+            
+
+
 
         if segundos>10:
             window.blit(noite_lua,(x_img,0))
@@ -121,7 +130,11 @@ while STATUS != QUIT:
                 x_img = 0
             else:
                 x_img -= 1
-        jogador.update() 
+
+        jogador.update()
+        monstros.update()
+        monstros.draw(window) 
+        window.blit(jogador.image, jogador.rect)
   
     if STATUS == END_SCREEN:
         window.blit(tela_fim, (0, 0))
