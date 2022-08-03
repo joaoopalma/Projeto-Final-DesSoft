@@ -3,11 +3,13 @@ from config import *
 from imagens_digitalizadas import *
 
 class Cogumelo (pygame.sprite.Sprite):
+
+    velocidade_inicial=1
+
     def __init__(self, img, x, y):
         pygame.sprite.Sprite.__init__(self)
 
-    
-
+        self.speed=Cogumelo.velocidade_inicial
         self.image = img 
         self.rect = self.image.get_rect()
 
@@ -17,14 +19,15 @@ class Cogumelo (pygame.sprite.Sprite):
         self.rect.y = 413
 
     def update(self):
-        self.rect.x -= 3
+        self.rect.x -= 4 * self.speed
         
         
         if self.rect.x >= WIDTH+57 or self.rect.x < 0 or self.rect.y >= HEIGHT or self.rect.y < 0:
-            self.rect.x = 900
-            self.rect.y = 413
+            #self.rect.x = 900
+            #self.rect.y = 413
+            Cogumelo.velocidade_inicial+=1
+            self.kill()
             
-            #pontos+=10
 
 class Player (pygame.sprite.Sprite):
     def __init__(self, img, x, y):
@@ -47,11 +50,11 @@ class Player (pygame.sprite.Sprite):
     
         if self.jumping:
             if self.subindo:
-                self.rect.y -= 3
+                self.rect.y -= 4
                 if self.altura_pulo > self.rect.y:
                     self.subindo = False
             else:
-                self.rect.y+=3
+                self.rect.y+=4
 
             if self.rect.y > 254:
                 self.jumping = False

@@ -18,6 +18,8 @@ bem_vindo = font.render('Bem-Vindo ao JOGO CABEÇAS COPULARES!', True, AZUL_ESCU
 jogador=Player(cup_parado, 400, 254)
 monstro=Cogumelo(cog_marrom, 900, 413)
 jogando= False
+monstros = pygame.sprite.Group()
+monstros.add(monstro)
 
 # Clock
 clock = pygame.time.Clock()
@@ -59,7 +61,7 @@ while STATUS != QUIT:
     
     
     if STATUS == GAME:
-        score = font.render('score: {}'.format(pontos), True, VERDE)
+        
         window.blit(tela_jogo,(x_img, 0))
         window.blit(tela_jogo,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
@@ -67,13 +69,7 @@ while STATUS != QUIT:
         else:
             x_img -= 1
         
-        window.blit(score, (800, 50))
-        window.blit(jogador.image, jogador.rect)
-        window.blit(monstro.image, monstro.rect)
-        monstro.update()
-        jogador.update()   
-        monstros= all_sprites = pygame.sprite.Group()
-        monstros.add(monstro)
+        window.blit(jogador.image, jogador.rect)  
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
 
             ## TImer
@@ -84,6 +80,9 @@ while STATUS != QUIT:
 
         if segundos >= 60:
             segundos -= 60 * (int(minutos))
+        pontos = segundos
+        score = font.render('score: {}'.format(pontos), True, VERDE)
+        window.blit(score, (800, 50))
 
         minutos = tempo_passado // 60000 # Convertendo para minutos
 
@@ -101,32 +100,34 @@ while STATUS != QUIT:
         #crono_pos = WIDTH / 2
         #crono
         window.blit(crono, (800, 100))
-        
+
+
         if len(colisao)>0:
             STATUS = END_SCREEN
         
+        if segundos%2==0:
+            monstro=Cogumelo(cog_marrom, 900, 413)
+            monstros.add(monstro)
+
+        monstros.update()
+        monstros.draw(window)
+
         if segundos>10:
             window.blit(noite_lua,(x_img,0))
             window.blit(noite,(x_img + WIDTH, 0))
+            window.blit(crono, (800, 100))
+            window.blit(score, (800, 50))
             if x_img + WIDTH == 0:
                 x_img = 0
             else:
                 x_img -= 1
-            window.blit(jogador.image, jogador.rect)
-            window.blit(monstro.image, monstro.rect)
-            jogador.update()   
-            monstros.add(monstro)
-            window.blit(crono, (800, 100))
-            window.blit(score, (800, 50))
-            window.blit(monstro.image, monstro.rect)
-            colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
-            pygame.display.update()
-
+        jogador.update() 
+  
     if STATUS == END_SCREEN:
         window.blit(tela_fim, (0, 0))
         pontos_finais = font.render('Sua pontuação foi {0}'.format(pontos), True, VERMELHO)
-        window.blit(pontos_finais, (400, 17))
-        pygame.display.update()
+        window.blit(pontos_finais, (250, 17))
+       
           
 
     # ----- Gera saídas
