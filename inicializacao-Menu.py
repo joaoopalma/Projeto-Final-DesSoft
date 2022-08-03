@@ -70,8 +70,8 @@ while STATUS != QUIT:
     
     if STATUS == GAME:
         
-        window.blit(tela_jogo,(x_img, 0))
-        window.blit(tela_jogo,(x_img + WIDTH, 0))
+        window.blit(cidade_predio,(x_img, 0))
+        window.blit(cidade,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
             x_img = 0
         else:
@@ -126,6 +126,16 @@ while STATUS != QUIT:
 
 
         if segundos>10:
+            window.blit(tela_jogo,(x_img,0))
+            window.blit(tela_jogo,(x_img + WIDTH, 0))
+            window.blit(crono, (800, 100))
+            window.blit(score, (800, 50))
+            if x_img + WIDTH == 0:
+                x_img = 0
+            else:
+                x_img -= 1
+
+        if segundos>20:
             window.blit(noite_lua,(x_img,0))
             window.blit(noite,(x_img + WIDTH, 0))
             window.blit(crono, (800, 100))

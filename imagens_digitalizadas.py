@@ -36,6 +36,12 @@ noite_lua = pygame.transform.scale(noite_lua, (1000, 670))
 tela_fim = pygame.image.load("imagens/tela_fim.png").convert_alpha()
 tela_fim = pygame.transform.scale(tela_fim, (1000, 670))
 
+cidade = pygame.image.load("imagens/cidade.png").convert_alpha()
+cidade = pygame.transform.scale(cidade, (1000, 670))
+
+cidade_predio = pygame.image.load("imagens/cidade_prédio.png").convert_alpha()
+cidade_predio = pygame.transform.scale(cidade_predio, (1000, 670))
+
 
 
 

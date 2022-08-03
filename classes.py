@@ -35,7 +35,7 @@ class Player (pygame.sprite.Sprite):
     def __init__(self, img, x, y):
         pygame.sprite.Sprite.__init__(self)
 
-        self. altura_pulo= 70
+        self. altura_pulo= 50
         self.subindo= True
         self.jumping= False
         self.image = img 
