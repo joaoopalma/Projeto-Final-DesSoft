@@ -21,6 +21,12 @@ cog_marrom = pygame.transform.scale(cog_marrom, (200, 200))
 cog_vermelho = pygame.image.load("imagens/cog_vermelho.png").convert_alpha()
 cog_vermelho = pygame.transform.scale(cog_vermelho, (200, 200))
 
+feno = pygame.image.load("imagens/feno.png").convert_alpha()
+feno = pygame.transform.scale(feno, (200, 170))
+
+arbusto = pygame.image.load("imagens/arbusto.png").convert_alpha()
+arbusto = pygame.transform.scale(arbusto, (200, 170))
+
 noite=pygame.image.load("imagens/noite.png").convert_alpha()
 noite = pygame.transform.scale(noite, (1000, 670))
 

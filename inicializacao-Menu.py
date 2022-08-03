@@ -17,7 +17,7 @@ state = 'start screen'
 clock = pygame.time.Clock()
 bem_vindo = font.render('Bem-Vindo ao JOGO CABEÇAS COPULARES!', True, AZUL_ESCURO)
 jogador=Player(cup_parado, 400, 254)
-escolhido=random.choice([cog_marrom, cog_vermelho, yoshi])
+escolhido=random.choice([cog_marrom, cog_vermelho, yoshi, feno, arbusto])
 monstro=Cogumelo(escolhido, 900, 413)
 jogando= False
 monstros = pygame.sprite.Group()
@@ -114,7 +114,7 @@ while STATUS != QUIT:
         
         tempo_criacao2=(pygame.time.get_ticks() - tempo_criacao)//1000
         if int(tempo_criacao2)>=tempo_espera:
-            escolhido=random.choice([cog_marrom, cog_vermelho, yoshi])
+            escolhido=random.choice([cog_marrom, cog_vermelho, yoshi, feno, arbusto])
             monstro=Cogumelo(escolhido, 900, 413)
             monstros.add(monstro)
             tempo_criacao = pygame.time.get_ticks()
