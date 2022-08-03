@@ -10,7 +10,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Cabeças Copulares')
 from imagens_digitalizadas import *
 from classes import *
-font = pygame.font.SysFont(None, 60)
+font = pygame.font.SysFont(None, 50)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
 state = 'start screen'
 clock = pygame.time.Clock()
@@ -65,7 +65,7 @@ while STATUS != QUIT:
         else:
             x_img -= 1
         
-        window.blit(score, (800, 100))
+        window.blit(score, (800, 50))
         window.blit(jogador.image, jogador.rect)
         window.blit(monstro.image, monstro.rect)
         monstro.update()
@@ -73,9 +73,35 @@ while STATUS != QUIT:
         monstros= all_sprites = pygame.sprite.Group()
         monstros.add(monstro)
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
+
+            ## TImer
+
+        fonte_timer = pygame.font.Font(None, 30)# Fonte para o timer
+        tempo_passado = pygame.time.get_ticks() - tempo_total # Variável para armazenar o tempo - o temp total
+        segundos =  tempo_passado // 1000  # Convertendo para segundos
+
+        if segundos >= 60:
+            segundos -= 60 * (int(minutos))
+
+        minutos = tempo_passado // 60000 # Convertendo para minutos
+
+        if segundos < 10:
+            segundo = '0' + str(segundos)
+        if minutos < 10:
+            minutos = '0' + str(minutos)
+        
+        mili = str(tempo_passado)[-3:]
+        
+        time = f'{minutos}: {segundos}.{mili}'
+
+        crono = fonte_timer.render(time, True, VERDE)
+        crono_rect = crono.get_rect()
+        #crono_pos = WIDTH / 2
+        #crono
+        window.blit(crono, (800, 100))
         
         if len(colisao)>0:
-            STATUS = END_SCREEN
+            STATUS = END_SCREEN      
     
     if STATUS == END_SCREEN:
         pass
