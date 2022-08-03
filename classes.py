@@ -17,19 +17,20 @@ class Cogumelo (pygame.sprite.Sprite):
         self.rect.y = 413
 
     def update(self):
-        self.rect.x -= 3
+        self.rect.x -= 2
         
         
         if self.rect.x >= WIDTH or self.rect.x < 0 or self.rect.y >= HEIGHT or self.rect.y < 0:
             self.kill()
-            score+=10
+            #score+=10
 
 class Player (pygame.sprite.Sprite):
     def __init__(self, img, x, y):
         pygame.sprite.Sprite.__init__(self)
 
-    
-
+        self. altura_pulo= 10
+        self.subindo= True
+        self.jumping= False
         self.image = img 
         self.rect = self.image.get_rect()
 
@@ -41,5 +42,20 @@ class Player (pygame.sprite.Sprite):
         self.rect.y = y
 
     def update(self):
-        pass
+    
+        if self.jumping:
+            if self.subindo:
+                self.rect.y -= 2
+                if self.altura_pulo > self.rect.y:
+                    self.subindo = False
+            else:
+                self.rect.y+=2
+
+            if self.rect.y > 254:
+                self.jumping = False
+                self.subindo = True
+                self.rect.y = 254
+
+
+                        
     

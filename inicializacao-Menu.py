@@ -43,6 +43,10 @@ while STATUS != QUIT:
             if x > 0 and y > 0 and x < 1000 and y < 650:
                 STATUS = GAME
                 clock.tick(FPS)
+                
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                    jogador.jumping= True
 
     if STATUS == GAME:
         score = font.render('score: {}'.format(pontos), True, (255, 255, 255))
@@ -57,6 +61,7 @@ while STATUS != QUIT:
         window.blit(jogador.image, jogador.rect)
         window.blit(monstro.image, monstro.rect)
         monstro.update()
+        jogador.update()   
         monstros= all_sprites = pygame.sprite.Group()
         monstros.add(monstro)
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
