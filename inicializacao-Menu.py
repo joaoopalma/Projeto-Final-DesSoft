@@ -15,6 +15,9 @@ text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
 state = 'start screen'
 clock = pygame.time.Clock()
 bem_vindo = font.render('Bem-Vindo ao JOGO CABEÇAS COPULARES!', True, AZUL_ESCURO)
+jogador=Player(cup_parado, 400, 254)
+monstro=Cogumelo(cog_marrom, 900, 413)
+jogando= False
 
 if state == 'start screen':   
     window.blit(tela_inicial, (0,0))
@@ -51,9 +54,19 @@ while STATUS != QUIT:
             x_img -= 1
         
         window.blit(score, (800, 100))
-        window.blit(cup_parado, (100,254))
-        monstro=Cogumelo(cog_marrom, 900, 413)
+        window.blit(jogador.image, jogador.rect)
         window.blit(monstro.image, monstro.rect)
+        monstro.update()
+        monstros= all_sprites = pygame.sprite.Group()
+        monstros.add(monstro)
+        colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
+
+        if len(colisao)>0:
+            STATUS = END_SCREEN
+    
+    if STATUS == END_SCREEN:
+        pass
+    
             
 
     # ----- Gera saídas
