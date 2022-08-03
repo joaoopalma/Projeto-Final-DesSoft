@@ -19,6 +19,11 @@ jogador=Player(cup_parado, 400, 254)
 monstro=Cogumelo(cog_marrom, 900, 413)
 jogando= False
 
+# Clock
+clock = pygame.time.Clock()
+
+tempo_total = pygame.time.get_ticks() # variável responsável por armazenar o tempo decorrido desde o início do jogo
+
 if state == 'start screen':   
     window.blit(tela_inicial, (0,0))
     window.blit(cup_parado, (630,254))  
@@ -31,6 +36,9 @@ STATUS = INIT
 
 # ===== Loop principal =====
 while STATUS != QUIT:
+
+    clock.tick(FPS)
+    
     # ----- Trata eventos
     for event in pygame.event.get():
         # ----- Verifica consequências
