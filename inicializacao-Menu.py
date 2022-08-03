@@ -47,6 +47,8 @@ while STATUS != QUIT:
     
     # ----- Trata eventos
     for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            STATUS = QUIT
         # ----- Verifica consequências
         if event.type == pygame.QUIT:
             game = False
@@ -61,6 +63,8 @@ while STATUS != QUIT:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                     jogador.jumping= True
+
+        
 
     
     
@@ -140,6 +144,8 @@ while STATUS != QUIT:
         window.blit(tela_fim, (0, 0))
         pontos_finais = font.render('Sua pontuação foi {0}'.format(pontos), True, VERMELHO)
         window.blit(pontos_finais, (250, 17))
+
+
        
           
 
