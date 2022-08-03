@@ -104,19 +104,30 @@ while STATUS != QUIT:
         
         if len(colisao)>0:
             STATUS = END_SCREEN
-
+        
+        if segundos>10:
+            window.blit(noite_lua,(x_img,0))
+            window.blit(noite,(x_img + WIDTH, 0))
+            if x_img + WIDTH == 0:
+                x_img = 0
+            else:
+                x_img -= 1
+            window.blit(jogador.image, jogador.rect)
+            window.blit(monstro.image, monstro.rect)
+            jogador.update()   
+            monstros.add(monstro)
+            window.blit(crono, (800, 100))
+            window.blit(score, (800, 50))
+            window.blit(monstro.image, monstro.rect)
+            colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
+            pygame.display.update()
 
     if STATUS == END_SCREEN:
         window.blit(tela_fim, (0, 0))
         pontos_finais = font.render('Sua pontuação foi {0}'.format(pontos), True, VERMELHO)
         window.blit(pontos_finais, (400, 17))
         pygame.display.update()
-
-        
-    
-
-    
-            
+          
 
     # ----- Gera saídas
     
