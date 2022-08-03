@@ -21,6 +21,12 @@ cog_marrom = pygame.transform.scale(cog_marrom, (200, 200))
 cog_vermelho = pygame.image.load("imagens/cog_vermelho.png").convert_alpha()
 cog_vermelho = pygame.transform.scale(cog_vermelho, (200, 200))
 
+noite=pygame.image.load("imagens/noite.png").convert_alpha()
+noite = pygame.transform.scale(noite, (1000, 670))
+
+noite_lua=pygame.image.load("imagens/noite_lua.png").convert_alpha()
+noite_lua = pygame.transform.scale(noite_lua, (1000, 670))
+
 
 
 

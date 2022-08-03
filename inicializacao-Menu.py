@@ -60,7 +60,7 @@ while STATUS != QUIT:
         monstros= all_sprites = pygame.sprite.Group()
         monstros.add(monstro)
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
-
+        
         if len(colisao)>0:
             STATUS = END_SCREEN
     
