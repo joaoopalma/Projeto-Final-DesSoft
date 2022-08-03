@@ -30,7 +30,7 @@ if state == 'start screen':
     window.blit(cup_armado, (100,254))  
     window.blit(bem_vindo, (50, 150))
 
-pontos = 0
+
 # ----- Inicia estruturas de dados
 STATUS = INIT
 
@@ -56,6 +56,8 @@ while STATUS != QUIT:
             if event.key == pygame.K_SPACE:
                     jogador.jumping= True
 
+    
+    
     if STATUS == GAME:
         score = font.render('score: {}'.format(pontos), True, (255, 255, 255))
         window.blit(tela_jogo,(x_img, 0))
@@ -101,10 +103,18 @@ while STATUS != QUIT:
         window.blit(crono, (800, 100))
         
         if len(colisao)>0:
-            STATUS = END_SCREEN      
-    
+            STATUS = END_SCREEN
+
+
     if STATUS == END_SCREEN:
-        pass
+        window.blit(tela_fim, (0, 0))
+        pontos_finais = font.render('Sua pontuação foi {0}'.format(pontos), True, VERMELHO)
+        window.blit(pontos_finais, (400, 17))
+        pygame.display.update()
+
+        
+    
+
     
             
 

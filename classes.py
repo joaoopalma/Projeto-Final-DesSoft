@@ -22,7 +22,7 @@ class Cogumelo (pygame.sprite.Sprite):
         
         if self.rect.x >= WIDTH or self.rect.x < 0 or self.rect.y >= HEIGHT or self.rect.y < 0:
             self.kill()
-            #score+=10
+            #pontos+=10
 
 class Player (pygame.sprite.Sprite):
     def __init__(self, img, x, y):

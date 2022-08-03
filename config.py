@@ -47,3 +47,6 @@ GAME = 2
 END_SCREEN = 3
 QUIT = 4
 
+#pontucação
+pontos = 0
+
