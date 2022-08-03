@@ -10,7 +10,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Cabeças Copulares')
 from imagens_digitalizadas import *
 from classes import *
-font = pygame.font.SysFont(None, 50)
+font = pygame.font.SysFont("Arial", 50)
 text_game = font.render('Cabeças Copulares', True, (0, 255, 0))
 state = 'start screen'
 clock = pygame.time.Clock()
@@ -59,7 +59,7 @@ while STATUS != QUIT:
     
     
     if STATUS == GAME:
-        score = font.render('score: {}'.format(pontos), True, (255, 255, 255))
+        score = font.render('score: {}'.format(pontos), True, VERDE)
         window.blit(tela_jogo,(x_img, 0))
         window.blit(tela_jogo,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
@@ -78,7 +78,7 @@ while STATUS != QUIT:
 
             ## TImer
 
-        fonte_timer = pygame.font.Font(None, 30)# Fonte para o timer
+        fonte_timer = pygame.font.SysFont("Arial", 30)# Fonte para o timer
         tempo_passado = pygame.time.get_ticks() - tempo_total # Variável para armazenar o tempo - o temp total
         segundos =  tempo_passado // 1000  # Convertendo para segundos
 
