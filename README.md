@@ -17,7 +17,10 @@ https://user-images.githubusercontent.com/103437914/182870764-b5d868f7-8b6a-47de
 Como
 Jogar:
 
-+ 
++ Após rodar o código. Para iniciar o jogo clique com o botão esquerdo mouse na tela.
++ Para o seu personagem não morrer para os monstro basta pular, e para isso aperte a barra de espaço no intervalo de tempo correto.
++ O seu objetivo é atingir a maior pontuação (score) que você conseguir
++ A equipe lhe deseja boa sorte!
 
 
 
@@ -28,4 +31,3 @@ especiais:
 - Aos professores **Maciel Calebe Vidal** e **Antonio Deusany de Carvalho Junior**
 - **NCS** pela música fornecida sem copyright.
 Disponível em: https://ncs.io/onandon
-- 
