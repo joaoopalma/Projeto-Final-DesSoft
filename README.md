@@ -6,7 +6,7 @@ Desenvolvedores: Fábio Neto, João Palma, Pedro Cunha
 
 ![Captura de tela 2022-08-04 113551](https://user-images.githubusercontent.com/103437914/182874244-f798cf86-e7a2-40ae-bde7-0c3f7e878c2e.jpg)
 
-### Para conseguir jogar, rode o arquivo --> *game.py*
+### Para conseguir jogar, rode o arquivo --> *jogo.py*
 
 Veja o *exemplo de funcionamento* do jogo 
 
