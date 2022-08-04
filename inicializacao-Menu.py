@@ -37,6 +37,7 @@ if state == 'start screen':
     window.blit(bem_vindo, (50, 150))
 
 
+
 # ----- Inicia estruturas de dados
 STATUS = INIT
 
@@ -44,7 +45,7 @@ STATUS = INIT
 while STATUS != QUIT:
 
     clock.tick(FPS)
-    
+
     # ----- Trata eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -53,19 +54,22 @@ while STATUS != QUIT:
         if event.type == pygame.QUIT:
             game = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            x = pygame.mouse.get_pos()[0]
-            y = pygame.mouse.get_pos()[1]
+            if STATUS == INIT:
+                x = pygame.mouse.get_pos()[0]
+                y = pygame.mouse.get_pos()[1]
 
-            if x > 0 and y > 0 and x < 1000 and y < 650:
-                STATUS = GAME
-                clock.tick(FPS)
-                
+                if x > 0 and y > 0 and x < 1000 and y < 650:
+                    STATUS = GAME
+                    
+            elif STATUS == END_SCREEN:
+                x = pygame.mouse.get_pos()[0] #pega a posicao do x (mouse)
+                y =  pygame.mouse.get_pos()[1] #pega a posicao do y (mouse)
+                if x > 340 and y > 490 and x < 720 and y < 590:
+                    STATUS = GAME
+                    
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                    jogador.jumping= True
-
-        
-
+                jogador.jumping= True
     
     
     if STATUS == GAME:
@@ -76,10 +80,10 @@ while STATUS != QUIT:
             x_img = 0
         else:
             x_img -= 1
-          
+        
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
 
-            ## TImer
+        # Timer
 
         fonte_timer = pygame.font.SysFont("Arial", 30)# Fonte para o timer
         tempo_passado = pygame.time.get_ticks() - tempo_total # Variável para armazenar o tempo - o temp total
@@ -87,7 +91,11 @@ while STATUS != QUIT:
 
         if segundos >= 60:
             segundos -= 60 * (int(minutos))
+        
+
         pontos = segundos
+        if pontos > 59:
+            pontos += 60
         score = font.render('score: {}'.format(pontos), True, VERDE)
         window.blit(score, (800, 50))
 
@@ -111,7 +119,11 @@ while STATUS != QUIT:
 
         if len(colisao)>0:
             STATUS = END_SCREEN
-        
+            colisao = []
+            monstro.kill()
+            
+            
+
         tempo_criacao2=(pygame.time.get_ticks() - tempo_criacao)//1000
         if int(tempo_criacao2)>=tempo_espera:
             escolhido=random.choice([cog_marrom, cog_vermelho, yoshi, feno, arbusto])
@@ -120,8 +132,6 @@ while STATUS != QUIT:
             tempo_criacao = pygame.time.get_ticks()
             tempo_espera=random.uniform(2,6)
 
-
-            
 
 
 
@@ -151,18 +161,19 @@ while STATUS != QUIT:
         window.blit(jogador.image, jogador.rect)
   
     if STATUS == END_SCREEN:
+        tempo_total = pygame.time.get_ticks()
         window.blit(tela_fim, (0, 0))
         pontos_finais = font.render('Sua pontuação foi {0}'.format(pontos), True, VERMELHO)
         window.blit(pontos_finais, (250, 17))
 
-
-       
-          
+        #botao
+        #texto no botao
+        texto=font.render('Jogar novamente',True, VERMELHO, PRETO)
+        window.blit(texto, (340, 490))
 
     # ----- Gera saídas
     
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
-
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
