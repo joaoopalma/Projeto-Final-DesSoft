@@ -17,8 +17,8 @@ https://user-images.githubusercontent.com/103437914/182870764-b5d868f7-8b6a-47de
 Como
 Jogar:
 
-+ Após rodar o código. Para iniciar o jogo clique com o botão esquerdo mouse na tela.
-+ Para o seu personagem não morrer para os monstro basta pular, e para isso aperte a barra de espaço no intervalo de tempo correto.
++ Após rodar o código. Para iniciar o jogo clique com o botão esquerdo do mouse na tela
++ Para o seu personagem não morrer para os monstro ao ser atingido basta pular. Assim, aperte a barra de espaço no intervalo de tempo correto para evitá-los
 + O seu objetivo é atingir a maior pontuação (score) que você conseguir
 + A equipe lhe deseja boa sorte!
 
