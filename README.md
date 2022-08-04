@@ -8,7 +8,11 @@ Desenvolvedores: Fábio Neto, João Palma, Pedro Cunha
 
 ### Para conseguir jogar, rode o arquivo --> *game.py*
 
-Veja a *exemplo de funcionamento* do jogo 
+Veja o *exemplo de funcionamento* do jogo 
+
+https://user-images.githubusercontent.com/103437914/182870764-b5d868f7-8b6a-47de-b41d-49b42807eb7f.mp4
+
+
 
 Como
 Jogar:
