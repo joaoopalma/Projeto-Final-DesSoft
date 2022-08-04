@@ -23,6 +23,9 @@ jogando= False
 monstros = pygame.sprite.Group()
 monstros.add(monstro)
 
+# music
+pygame.mixer.music.load(("sounds/Cartoon - On & On (feat. Daniel Levi) [NCS Release].mp3"))
+tocando = False
 # Clock
 clock = pygame.time.Clock()
 
@@ -66,20 +69,24 @@ while STATUS != QUIT:
                 y =  pygame.mouse.get_pos()[1] #pega a posicao do y (mouse)
                 if x > 340 and y > 490 and x < 720 and y < 590:
                     STATUS = GAME
-                    
+                                     
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 jogador.jumping= True
     
     
     if STATUS == GAME:
-        
+
         window.blit(cidade_predio,(x_img, 0))
         window.blit(cidade,(x_img + WIDTH, 0))
         if x_img + WIDTH == 0:
             x_img = 0
         else:
             x_img -= 1
+        if tocando == False:
+            pygame.mixer.music.play(loops= -1)
+            tocando = True
+        
         
         colisao= pygame.sprite.spritecollide(jogador, monstros, False, pygame.sprite.collide_mask)
 
