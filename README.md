@@ -8,7 +8,7 @@ Desenvolvedores: Fábio Neto, João Palma, Pedro Cunha
 
 ### Para conseguir jogar, rode o arquivo --> *game.py*
 
-Veja a *exemplo de funcionamento* do jogo [aqui.]()
+Veja a *exemplo de funcionamento* do jogo 
 
 Como
 Jogar:
@@ -22,4 +22,6 @@ Agradecimentos
 especiais:
 
 - Aos professores **Maciel Calebe Vidal** e **Antonio Deusany de Carvalho Junior**
-- Colocar sites...
+- **NCS** pela música fornecida sem copyright.
+Disponível em: https://ncs.io/onandon
+- 
